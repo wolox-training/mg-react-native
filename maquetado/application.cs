@@ -1,7 +1,3 @@
-.title {
-  color: red;
-}
-
 * {
   box-sizing: border-box;
   font-family: sans-serif;
