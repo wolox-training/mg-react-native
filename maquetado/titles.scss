@@ -1,16 +1,18 @@
 .title {
-  color: $black;
-  font-size: $text-big;
-  display: flex;
-  padding-left: 50px;
   align-items: center;
-  position: relative;
+  color: $black;
+  display: flex;
+  font-size: $text-big;
   height: $title-decoration-height;
-    &::before {
-        content: url('assets/triangle.svg');
-        position: absolute;
-        left: 0;
-        width: $title-decoration-width;
-        z-index: -1;
-    }
+  padding-left: 50px;
+  position: relative;
+
+  &::before {
+    content: url('assets/triangle.svg');
+    height: $title-decoration-height;
+    left: 0;
+    position: absolute;
+    width: $title-decoration-width;
+    z-index: -1;
+  }
 }
