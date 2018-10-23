@@ -1,48 +1,43 @@
-.react-icon {
-  height: 100px;
-  margin: 10px;
-  width: 100px;
+.tech-icon {
+  height: $tech-logo-size;
 }
 
-.title {
+.tech-title {
   font-size: $text-medium;
-  margin: 10px;
+  margin: 10px 0;
 }
 
-.title-relase {
+.tech-relase {
   font-size: $text-medium;
   font-weight: bold;
-  margin: 10px;
+  margin: 10px 0;
 }
 
-.title-description {
+.tech-description {
   font-size: $text-medium;
-  margin: 10px;
+  margin: 10px 0;
 }
-// cuadro verde
-.react-tech {
+
+.tech {
   align-items: center;
   background-color: $green;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  height: 300px;
   margin: 10px 4px;
   position: relative;
-  right: -10px; // puede no ir, lo puse para que este separado del borde de la pagina
   text-align: center;
-  top: 10px; // puede no ir, lo puse para que este separado del borde de la pagina
   width: 200px;
-}
-// cuadro transparente
-.react-tech::before {
-  border: 3px solid $green;
-  border-radius: 10px;
-  content: '';
-  height: 300px;
-  left: -10px;
-  position: absolute;
-  top: -10px;
-  width: 200px;
-  z-index: -1;
+
+  &:before {
+    border: 2px solid $green;
+    border-radius: 10px;
+    content: '';
+    height: 100%;
+    left: -10px;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    z-index: -1;
+  }
 }
