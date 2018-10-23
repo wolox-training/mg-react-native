@@ -1,0 +1,51 @@
+.react-icon {
+  height: 100px;
+  margin: 10px;
+  width: 100px;
+  z-index: 1;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-size: $text-medium;
+  margin: 10px;
+  z-index: 1;
+}
+
+.title-relase {
+  font-family: 'Roboto';
+  font-size: $text-medium;
+  font-weight: bold;
+  margin: 10px;
+  z-index: 1;
+}
+
+.title-description {
+  font-family: 'Roboto';
+  font-size: $text-medium;
+  margin: 10px;
+  z-index: 1;
+}
+
+.react-tech {
+  align-items: center;
+  border: 3px solid $green;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  position: relative;
+  text-align: center;
+  width: 200px;
+}
+// funca pero no se ve
+.react-tech::before {
+  background-color: $green;
+  border-radius: 10px;
+  content: '';
+  height: 300px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: 200px;
+}
