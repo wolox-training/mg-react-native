@@ -1,5 +1,6 @@
 .tech-icon {
-  height: $tech-logo-size;
+  max-height: $tech-logo-size;
+  max-width: $tech-logo-size;
 }
 
 .tech-title {
@@ -16,6 +17,13 @@
 .tech-description {
   font-size: $text-medium;
   margin: 10px 0;
+}
+
+.tech-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
 .tech {
