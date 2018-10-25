@@ -1,0 +1,25 @@
+.footer {
+  align-items: center;
+  background-color: $blue;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  padding: 20px 300px;
+  width: 100%;
+  z-index: 1;
+}
+
+.footer-wolox-icon {
+  height: $title-decoration-height;
+  width: $title-decoration-width;
+}
+
+.footer-title {
+  font-size: $text-big;
+}
+
+.footer-text {
+  align-self: flex-end;
+  font-size: $text-small;
+}
