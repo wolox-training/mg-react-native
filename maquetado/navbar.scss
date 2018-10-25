@@ -1,0 +1,21 @@
+.nav-bar {
+  align-items: center;
+  background-color: $white;
+  border-bottom: 1px solid $grey;
+  display: flex;
+  font-family: 'Roboto', 'sans-serif';
+  height: $nav-height;
+  justify-content: space-between;
+  padding: 0 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.wolox-logo {
+  height: $nav-logo-height;
+}
+
+.dev-tools {
+  font-size: $text-big;
+}

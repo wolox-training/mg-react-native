@@ -1,4 +1,9 @@
-body {
+.content {
   font-family: 'Roboto', sans-serif;
-  padding: 10px 20px;
+  padding: 80px 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
