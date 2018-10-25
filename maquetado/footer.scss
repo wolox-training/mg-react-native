@@ -1,19 +1,19 @@
 .footer {
   align-items: center;
   background-color: $blue;
-  color: $white;
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 50px;
   width: 100%;
 }
 
 .footer-title {
+  color: $white;
   font-size: $text-big;
 }
 
 .footer-text {
   align-self: flex-end;
+  color: $white;
   font-size: $text-small;
 }
