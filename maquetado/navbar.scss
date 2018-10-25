@@ -3,7 +3,6 @@
   background-color: $white;
   border-bottom: 1px solid $grey;
   display: flex;
-  font-family: 'Roboto', 'sans-serif';
   height: $nav-height;
   justify-content: space-between;
   padding: 0 10px;
@@ -12,10 +11,10 @@
   z-index: 1;
 }
 
-.wolox-logo {
+.nav-wolox-logo {
   height: $nav-logo-height;
 }
 
-.dev-tools {
+.nav-title {
   font-size: $text-big;
 }
