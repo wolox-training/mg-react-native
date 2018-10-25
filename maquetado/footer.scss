@@ -4,15 +4,9 @@
   color: $white;
   display: flex;
   flex-direction: column;
-  height: 500px;
-  padding: 20px 300px;
+  height: 100%;
+  padding: 50px;
   width: 100%;
-  z-index: 1;
-}
-
-.footer-wolox-icon {
-  height: $title-decoration-height;
-  width: $title-decoration-width;
 }
 
 .footer-title {
