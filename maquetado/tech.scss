@@ -25,9 +25,14 @@
   display: flex;
   flex-direction: column;
   margin: 10px 4px;
+  padding: 20px;
   position: relative;
   text-align: center;
   width: 200px;
+
+  &:hover::before {
+    transform: translate(20px, 20px);
+  }
 
   &::before {
     border: 2px solid $green;
@@ -37,6 +42,7 @@
     left: -10px;
     position: absolute;
     top: -10px;
+    transform: all 0.5s ease;
     width: 100%;
     z-index: -1;
   }
