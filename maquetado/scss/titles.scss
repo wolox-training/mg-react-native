@@ -8,7 +8,7 @@
   position: relative;
 
   &::before {
-    content: url('assets/triangle.svg');
+    content: url('/maquetado/assets/triangle.svg');
     height: $title-decoration-height;
     left: 0;
     position: absolute;
