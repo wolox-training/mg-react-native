@@ -1,9 +1,15 @@
+body {
+  font-family: 'Roboto', 'sans-serif';
+}
+
 .content {
   display: flex;
   flex-direction: column;
   padding: 100px;
 }
 
-body {
-  font-family: 'Roboto', 'sans-serif';
+@media only screen and (max-width: 1024px) {
+  .content {
+    padding: 100px 20px;
+  }
 }

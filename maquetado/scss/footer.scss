@@ -21,3 +21,17 @@
 .footer-wolox-icon {
   margin-bottom: 14px;
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer-text {
+    align-self: center;
+  }
+
+  .footer-wolox-icon {
+    margin-bottom: 50px;
+  }
+
+  .footer {
+    padding: 50px;
+  }
+}

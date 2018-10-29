@@ -45,3 +45,27 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .tech-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tech {
+    border-bottom: 3px solid $green;
+    margin: 0;
+    max-width: none;
+
+    &:first-child {
+      border-right: none;
+      grid-row: span 1;
+      margin: 0;
+      max-width: none;
+      padding: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
