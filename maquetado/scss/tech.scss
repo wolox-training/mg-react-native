@@ -45,3 +45,38 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .tech-container {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    //max-width: 1200px;
+    padding: 20px;
+  }
+
+  .tech {
+    align-items: center;
+    border-bottom: 3px solid $green;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 15px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    width: 230px;
+
+    &:first-child {
+      border-right: 0 solid $green;
+      justify-content: center;
+      margin: 20px 15px;
+      padding: 20px;
+      width: 230px;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
