@@ -1,5 +1,9 @@
 .content {
-  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 100px;
 }
 
 body {
