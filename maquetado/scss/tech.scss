@@ -20,39 +20,28 @@
 }
 
 .tech-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 20px;
 }
 
 .tech {
   align-items: center;
-  background-color: $green;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 20px 15px;
+  max-width: 400px;
   padding: 20px;
   position: relative;
   text-align: center;
-  width: 230px;
+  width: 100%;
 
-  &:hover::before {
-    transform: translate(20px, 20px);
-  }
-
-  &::before {
-    border: 2px solid $green;
-    border-radius: 10px;
-    content: '';
-    height: 100%;
-    left: -10px;
-    position: absolute;
-    top: -10px;
-    transition: transform 0.5s ease;
+  &:first-child {
+    border-right: 2px solid $green;
+    grid-row: span 2;
+    justify-content: center;
+    max-width: 400px;
+    padding: 0 100px;
     width: 100%;
-    z-index: -1;
   }
 }
