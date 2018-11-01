@@ -14,13 +14,10 @@ export function copy(obj) {
 }
 
 export function reverseMerge(obj1, obj2) {
-  const newArray = [...obj2, ...obj1];
-  return newArray;
+  return [...obj2, ...obj1];
 }
 
 export function filterAttribs(obj) {
-  const {
-    a, b, c, d, ...z
-  } = { ...obj };
-  return { c, d, ...z };
+  const { a, b, ...others } = obj;
+  return others;
 }
