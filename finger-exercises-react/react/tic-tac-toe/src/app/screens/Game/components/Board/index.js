@@ -4,16 +4,15 @@ import Square from '../Square';
 import styles from '../../styles.scss';
 
 class Board extends React.Component {
-  // eslint-disable-next-line class-methods-use-this
-  renderSquare() {
-    return <Square />;
+  renderSquare(i) {
+    return <Square value={i} />;
   }
 
   render() {
     const status = 'Next player: X';
 
     return (
-      <div>
+      <React.Fragment>
         <div className={styles.status}>{status}</div>
         <div className={styles.boardRow}>
           {this.renderSquare(0)}
@@ -30,7 +29,7 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
