@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Square from '../Square';
-import styles from '../../styles.scss';
 
+import styles from './styles.scss';
 import { calculateWinner } from './utils';
 
 class Board extends React.Component {

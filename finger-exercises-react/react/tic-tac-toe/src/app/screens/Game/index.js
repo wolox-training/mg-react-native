@@ -5,10 +5,7 @@ import styles from './styles.scss';
 import { calculateWinner } from './components/Board/utils';
 
 class Game extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { history: [{ squares: Array(9).fill(null) }], stepNumber: 0, xIsNext: true };
-  }
+  state = { history: [{ squares: Array(9).fill(null) }], stepNumber: 0, xIsNext: true };
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
