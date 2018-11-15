@@ -7,6 +7,13 @@ import MatchesService from '../../../services/MatchesService';
 
 import styles from './styles.scss';
 
+const winner = game => {
+  if (game.winner === 'tie') {
+    return 'Empate';
+  }
+  return game[game.winner];
+};
+
 class PrevGames extends React.Component {
   componentDidMount() {
     MatchesService.getMatches().then(response => {
@@ -14,20 +21,13 @@ class PrevGames extends React.Component {
     });
   }
 
-  winner(game) {
-    if (game.winner === 'tie') {
-      return 'Empate';
-    }
-    return game[game.winner];
-  }
-
-  renderGames(games) {
-    games.map(game => (
-      <div>
+  renderGames() {
+    return this.props.matches.map(game => (
+      <div key={game.id}>
         <p>ID game: {game.id}</p>
         <p>Jugador 1: {game.player_one}</p>
         <p>Jugador 2: {game.player_two}</p>
-        <p>Quien gano?: {this.winner(game)}</p>
+        <p>Quien gano?: {winner(game)}</p>
         <p>Fecha del partido: {game.createdAt}</p>
       </div>
     ));
@@ -36,7 +36,7 @@ class PrevGames extends React.Component {
   render() {
     return (
       <div className={styles.list}>
-        <p>Partidos Anteriores: {this.renderGames(this.props.matches)} </p>
+        <p>Partidos Anteriores: {this.renderGames()} </p>
       </div>
     );
   }
