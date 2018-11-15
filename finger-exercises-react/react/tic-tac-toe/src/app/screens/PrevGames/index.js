@@ -21,16 +21,15 @@ class PrevGames extends React.Component {
     return game[game.winner];
   }
 
-  // cambiar el nombre a objects por algo que diga lo que es.
   render() {
-    const renderData = objects =>
-      objects.map(object => (
+    const renderData = games =>
+      games.map(game => (
         <div>
-          <p>ID game: {object.id}</p>
-          <p>Jugador 1: {object.player_one}</p>
-          <p>Jugador 2: {object.player_two}</p>
-          <p>Quien gano?: {this.winner(object)}</p>
-          <p>Fecha del partido: {object.createdAt}</p>
+          <p>ID game: {game.id}</p>
+          <p>Jugador 1: {game.player_one}</p>
+          <p>Jugador 2: {game.player_two}</p>
+          <p>Quien gano?: {this.winner(game)}</p>
+          <p>Fecha del partido: {game.createdAt}</p>
         </div>
       ));
 
