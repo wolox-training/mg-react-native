@@ -58,7 +58,7 @@ class Game extends React.Component {
 
 const mapStateToProps = state => ({
   stepNumber: state.game.stepNumber,
-  xIsNext: state.game.stepNumber,
+  xIsNext: state.game.xIsNext,
   history: state.game.history
 });
 

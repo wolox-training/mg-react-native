@@ -21,21 +21,22 @@ class PrevGames extends React.Component {
     return game[game.winner];
   }
 
-  render() {
-    const renderData = games =>
-      games.map(game => (
-        <div>
-          <p>ID game: {game.id}</p>
-          <p>Jugador 1: {game.player_one}</p>
-          <p>Jugador 2: {game.player_two}</p>
-          <p>Quien gano?: {this.winner(game)}</p>
-          <p>Fecha del partido: {game.createdAt}</p>
-        </div>
-      ));
+  renderGames(games) {
+    games.map(game => (
+      <div>
+        <p>ID game: {game.id}</p>
+        <p>Jugador 1: {game.player_one}</p>
+        <p>Jugador 2: {game.player_two}</p>
+        <p>Quien gano?: {this.winner(game)}</p>
+        <p>Fecha del partido: {game.createdAt}</p>
+      </div>
+    ));
+  }
 
+  render() {
     return (
       <div className={styles.list}>
-        <p>Partidos Anteriores: {renderData(this.props.matches)} </p>
+        <p>Partidos Anteriores: {this.renderGames(this.props.matches)} </p>
       </div>
     );
   }
@@ -50,7 +51,15 @@ const mapDispatchToProps = dispatch => ({
 });
 
 PrevGames.propTypes = {
-  matches: PropTypes.list.isRequired,
+  matches: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      player_one: PropTypes.string.isRequired,
+      player_two: PropTypes.string.isRequired,
+      winner: PropTypes.string.isRequired,
+      createdAt: PropTypes.string.isRequired
+    })
+  ).isRequired,
   matchesSuccess: PropTypes.func.isRequired
 };
 
