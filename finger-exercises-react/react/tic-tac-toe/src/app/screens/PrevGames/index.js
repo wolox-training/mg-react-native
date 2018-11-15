@@ -49,13 +49,10 @@ const mapDispatchToProps = dispatch => ({
   matchesSuccess: matches => dispatch(matchesSuccess(matches))
 });
 
-// PrevGames.propTypes = {
-//   history: PropTypes.string.isRequired,
-//   stepNumber: PropTypes.number.isRequired,
-//   xIsNext: PropTypes.bool.isRequired,
-//   onClick: PropTypes.func.isRequired,
-//   jumpTo: PropTypes.func.isRequired
-// };
+PrevGames.propTypes = {
+  matches: PropTypes.list.isRequired,
+  matchesSuccess: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,
