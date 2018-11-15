@@ -56,10 +56,15 @@ class Game extends React.Component {
   }
 }
 
+// const mapStateToProps = state => ({
+//   stepNumber: state.stepNumber,
+//   xIsNext: state.xIsNext,
+//   history: state.history
+// }); Esto era antes de hacer un combine.
 const mapStateToProps = state => ({
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext,
-  history: state.history
+  stepNumber: state.game.stepNumber,
+  xIsNext: state.game.stepNumber,
+  history: state.game.history
 });
 
 const mapDispatchToProps = dispatch => ({

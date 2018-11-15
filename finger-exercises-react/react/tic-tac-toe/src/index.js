@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import rootReducer from './redux/reducer';
+import { createStore } from '../node_modules/redux';
+
+import rootReducer from './redux';
 import './scss/index.scss';
 import registerServiceWorker from './registerServiceWorker';
 
