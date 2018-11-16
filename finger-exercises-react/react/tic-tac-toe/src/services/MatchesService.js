@@ -1,5 +1,14 @@
 import api from '../config/api';
 
+// export default {
+//   getMatches: () => api.get('/matches')
+// };
+
 export default {
-  getMatches: () => api.get('/matches')
+  getMatches: () =>
+    new Promise(resolve => {
+      setTimeout(() => {
+        resolve(api.get('/matches'));
+      }, 3000);
+    })
 };

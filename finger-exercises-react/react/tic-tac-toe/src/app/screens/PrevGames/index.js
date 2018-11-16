@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Spinner from 'react-spinkit';
 
-import { matchesSuccess } from '../../../redux/PrevGames/actions';
-import MatchesService from '../../../services/MatchesService';
+import { getMatchesAction } from '../../../redux/PrevGames/actions';
 
 import styles from './styles.scss';
 
@@ -16,12 +16,13 @@ const winner = game => {
 
 class PrevGames extends React.Component {
   componentDidMount() {
-    MatchesService.getMatches().then(response => {
-      this.props.matchesSuccess(response.data);
-    });
+    this.props.getMatches();
   }
 
   renderGames() {
+    if (this.props.error) {
+      return <p> Error API Request</p>;
+    }
     return this.props.matches.map(game => (
       <div key={game.id}>
         <p>ID game: {game.id}</p>
@@ -36,18 +37,28 @@ class PrevGames extends React.Component {
   render() {
     return (
       <div className={styles.list}>
-        <p>Partidos Anteriores: {this.renderGames()} </p>
+        <p>
+          Partidos Anteriores:{' '}
+          {this.props.loading ? (
+            <p className={styles.spinner}>
+              <Spinner name="circle" />{' '}
+            </p>
+          ) : (
+            this.renderGames()
+          )}{' '}
+        </p>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  matches: state.prevGames.matches
+  matches: state.prevGames.matches,
+  loading: state.prevGames.loading
 });
 
 const mapDispatchToProps = dispatch => ({
-  matchesSuccess: matches => dispatch(matchesSuccess(matches))
+  getMatches: () => dispatch(getMatchesAction())
 });
 
 PrevGames.propTypes = {
@@ -60,7 +71,9 @@ PrevGames.propTypes = {
       createdAt: PropTypes.string.isRequired
     })
   ).isRequired,
-  matchesSuccess: PropTypes.func.isRequired
+  getMatches: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired
 };
 
 export default connect(
