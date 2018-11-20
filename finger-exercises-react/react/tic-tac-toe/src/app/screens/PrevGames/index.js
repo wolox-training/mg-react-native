@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
-import { getMatchesAction } from '../../../redux/PrevGames/actions';
+import { getMatches } from '../../../redux/PrevGames/actions';
 
 import styles from './styles.scss';
 
@@ -21,7 +21,7 @@ class PrevGames extends React.Component {
 
   renderGames() {
     if (this.props.error) {
-      return <p> Error API Request</p>;
+      return <p> Error pedido a API</p>;
     }
     return this.props.matches.map(game => (
       <div key={game.id}>
@@ -58,7 +58,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMatches: () => dispatch(getMatchesAction())
+  getMatches: () => dispatch(getMatches())
 });
 
 PrevGames.propTypes = {

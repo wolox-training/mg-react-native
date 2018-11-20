@@ -14,7 +14,7 @@ export const matchesFailed = problem => ({
   payload: problem
 });
 
-export const getMatchesAction = () => dispatch => {
+export const getMatches = () => dispatch => {
   dispatch(matchesLoading());
   MatchesService.getMatches().then(response => {
     if (response.ok && response.data.length > 0) {
