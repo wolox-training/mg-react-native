@@ -9,3 +9,5 @@ export default combineReducers({
   game,
   prevGames
 });
+
+// creo que aca me falta el form:
