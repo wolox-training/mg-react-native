@@ -2,23 +2,31 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 
-import { customInput, customSelect } from './index';
+import { required, minLength } from './validation';
+
+import { customInput } from './index';
 
 class Login extends React.Component {
   render() {
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <Field name="firstname" component={customInput} type="text" label="Nombre" validate="" />
-        <Field name="surname" component={customInput} type="text" label="Apellido" validate="" />
-        <Field name="username" component={customInput} type="text" label="Nombre de usuario" validate="" />
-        <Field name="password" component={customInput} type="text" label="Contraseña" validate="" />
+        <Field name="firstname" component={customInput} type="text" label="Nombre" validate={[required]} />
+        <Field name="surname" component={customInput} type="text" label="Apellido" validate={[required]} />
+        <Field name="mail" component={customInput} type="text" label="E-mail" validate={[required]} />
+        <Field
+          name="password"
+          component={customInput}
+          type="password"
+          label="Contraseña"
+          validate={[required, minLength]}
+        />
         <Field
           name="confirmPassword"
           component={customInput}
-          type="text"
+          type="password"
           label="Confirme contraseña"
-          validate=""
+          validate={[required, minLength]}
         />
         <button type="submit">Enviar</button>
       </form>
@@ -26,8 +34,10 @@ class Login extends React.Component {
   }
 }
 
-Login = reduxForm({
+const loginForm = reduxForm({
   form: 'login'
 })(Login);
 
-export default Login;
+// esto no tengo idea que hace (lo de arriba)
+
+export default loginForm;
