@@ -1,32 +1,49 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
-export const customInput = props => (
-  <div>
-    <label htmlFor={props.name}> {props.label} </label>
-    {props.meta.error && props.meta.touched && <div>{props.meta.error}</div>}
-    <input name={props.name} type={props.type} />
-  </div>
-);
+import api from '../../../config/api';
+import { login } from '../../../services/AuthService';
+import { loggedSucces, loggedFailed } from '../../../redux/Login/actions';
 
-// export const customSelect = props => (
-//   <div>
-//     <label> {props.label}</label>
-//     <select {...props.input}>
-//       <option />
-//       <option value="tabs">Tabs</option>
-//       <option value="spaces">Spaces</option>
-//     </select>
-//   </div>
-// );
+import Login from './layout';
 
-// customSelect.propTypes = {
-//   label: PropTypes.string.isRequired,
-//   input: PropTypes.arrayOf(PropTypes.string).isRequired
-// };
+class LoginContainer extends Component {
+  handleSubmit = values => {
+    login(values).then(response => {
+      if (response.ok) {
+        api.setHeader('Authorization', response.data.token);
+        localStorage.setItem('Token', response.data.token);
+        this.props.loggedSucces();
+      }
+    });
+  };
 
-customInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  render() {
+    if (this.props.log) {
+      return <Redirect to="/game" />;
+    }
+    return <Login onSubmit={this.handleSubmit} />;
+  }
+}
+
+const mapStateToProps = state => ({
+  log: state.logged.log
+});
+
+const mapDispatchToProps = dispatch => ({
+  loggedSucces: () => dispatch(loggedSucces()),
+  loggedFailed: () => dispatch(loggedFailed())
+});
+
+LoginContainer.propTypes = {
+  log: PropTypes.bool.isRequired,
+  loggedSucces: PropTypes.func.isRequired,
+  loggedFailed: PropTypes.func.isRequired
 };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginContainer);

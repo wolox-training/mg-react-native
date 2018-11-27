@@ -5,11 +5,11 @@ import { combineReducers } from '../../node_modules/redux';
 
 import game from './reducer';
 import prevGames from './PrevGames/reducer';
+import logged from './Login/reducer';
 
 export default combineReducers({
   game,
   prevGames,
-  form
+  form,
+  logged
 });
-
-// creo que aca me falta el form:
