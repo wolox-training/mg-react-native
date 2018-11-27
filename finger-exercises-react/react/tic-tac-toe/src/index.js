@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { createStore, applyMiddleware, compose } from '../node_modules/redux';
 
 import rootReducer from './redux';
-import './scss/index.scss';
+import './scss/application.scss';
 import registerServiceWorker from './registerServiceWorker';
 import Routs from './app/components/Routs';
 
