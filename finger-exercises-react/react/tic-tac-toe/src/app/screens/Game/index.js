@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 
+import PrevGames from '../../screens/PrevGames';
 import { jumpTo, handleClick } from '../../../redux/actions';
 
 import Board from './components/Board';
@@ -42,16 +44,23 @@ class Game extends React.Component {
       status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
 
+    if (!this.props.log) {
+      return <Redirect to="/login" />;
+    }
+
     return (
-      <div className={styles.game}>
-        <div className={styles.gameBoard}>
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+      <Fragment>
+        <div className={styles.game}>
+          <div className={styles.gameBoard}>
+            <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          </div>
+          <div className={styles.gameInfo}>
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
         </div>
-        <div className={styles.gameInfo}>
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+        <PrevGames />
+      </Fragment>
     );
   }
 }
@@ -59,7 +68,8 @@ class Game extends React.Component {
 const mapStateToProps = state => ({
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext,
-  history: state.game.history
+  history: state.game.history,
+  log: state.login.logged
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -72,7 +82,8 @@ Game.propTypes = {
   stepNumber: PropTypes.number.isRequired,
   xIsNext: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  jumpTo: PropTypes.func.isRequired
+  jumpTo: PropTypes.func.isRequired,
+  log: PropTypes.bool.isRequired
 };
 
 export default connect(

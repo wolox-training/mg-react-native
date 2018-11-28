@@ -3,9 +3,8 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
-import api from '../../../config/api';
-import { login } from '../../../services/AuthService';
 import { loggedSucces, loggedFailed } from '../../../redux/Login/actions';
+import { setToken, login } from '../../../services/AuthService';
 
 import Login from './layout';
 
@@ -13,8 +12,7 @@ class LoginContainer extends Component {
   handleSubmit = values => {
     login(values).then(response => {
       if (response.ok) {
-        api.setHeader('Authorization', response.data.token);
-        localStorage.setItem('Token', response.data.token);
+        setToken(response);
         this.props.loggedSucces();
       }
     });
@@ -29,7 +27,7 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  log: state.logged.log
+  log: state.login.logged
 });
 
 const mapDispatchToProps = dispatch => ({

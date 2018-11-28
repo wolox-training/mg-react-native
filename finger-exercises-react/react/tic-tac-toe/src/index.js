@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, compose } from '../node_modules/redux';
 import rootReducer from './redux';
 import './scss/application.scss';
 import registerServiceWorker from './registerServiceWorker';
-import Routs from './app/components/Routs';
+import Routes from './app/components/Routes';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -18,7 +18,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routs />
+    <Routes />
   </Provider>,
   document.getElementById('root')
 );

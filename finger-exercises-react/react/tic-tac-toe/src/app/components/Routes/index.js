@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
-import App from '../App';
+import Game from '../../screens/Game';
 import Login from '../../screens/Login';
 import { loggedSucces, loggedFailed } from '../../../redux/Login/actions';
+import { getToken } from '../../../services/AuthService';
 
-class Routs extends Component {
+class Routes extends Component {
   componentDidMount() {
-    if (localStorage.getItem('Token')) {
+    if (getToken()) {
       this.props.loggedSucces();
     } else {
       this.props.loggedFailed();
@@ -23,7 +24,7 @@ class Routs extends Component {
     return (
       <Router>
         <div>
-          <Route path="/game" exact component={App} />
+          <Route path="/game" exact component={Game} />
           <Route path="/login" exact component={Login} />
         </div>
       </Router>
@@ -32,7 +33,7 @@ class Routs extends Component {
 }
 
 const mapStateToProps = state => ({
-  loading: state.logged.loading
+  loading: state.login.loading
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -40,7 +41,7 @@ const mapDispatchToProps = dispatch => ({
   loggedFailed: () => dispatch(loggedFailed())
 });
 
-Routs.propTypes = {
+Routes.propTypes = {
   loading: PropTypes.bool.isRequired,
   loggedSucces: PropTypes.func.isRequired,
   loggedFailed: PropTypes.func.isRequired
@@ -49,4 +50,4 @@ Routs.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Routs);
+)(Routes);

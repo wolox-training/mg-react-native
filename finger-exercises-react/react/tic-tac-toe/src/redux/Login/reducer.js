@@ -1,15 +1,15 @@
-const initialState = { log: false, loading: true };
+const initialState = { logged: false, loading: true };
 
-const logged = (state = initialState, action) => {
+const login = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGGED_SUCCESS':
       return {
-        log: true,
+        logged: true,
         loading: false
       };
     case 'LOGGED_FAILED':
       return {
-        log: false,
+        logged: false,
         loading: false
       };
     default:
@@ -17,4 +17,4 @@ const logged = (state = initialState, action) => {
   }
 };
 
-export default logged;
+export default login;
