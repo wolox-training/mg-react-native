@@ -5,4 +5,9 @@ const api = create({
   timeout: 5000
 });
 
+const token = localStorage.getItem('Token');
+if (token) {
+  api.setHeader('Authorization', token);
+}
+
 export default api;
