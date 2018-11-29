@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
+import PrevGames from '../../screens/PrevGames';
 import Game from '../../screens/Game';
 import Login from '../../screens/Login';
 import { loggedSucces, loggedFailed } from '../../../redux/Login/actions';
@@ -26,6 +27,7 @@ class Routes extends Component {
         <div>
           <Route path="/game" exact component={Game} />
           <Route path="/login" exact component={Login} />
+          <Route path="/prevgames" exact component={PrevGames} />
         </div>
       </Router>
     );

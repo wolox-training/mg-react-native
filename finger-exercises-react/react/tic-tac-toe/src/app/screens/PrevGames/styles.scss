@@ -16,3 +16,22 @@
   display: flex;
   justify-content: center;
 }
+
+.topBar {
+  background: lightblue;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  justify-content: flex-end;
+  width: auto;
+}
+
+.link {
+  align-content: center;
+  background: gray;
+  border: solid 1px black;
+  color: white;
+  display: flex;
+  height: 30px;
+  width: 120px;
+}

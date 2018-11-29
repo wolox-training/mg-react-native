@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 
-import { loggedSucces, loggedFailed } from '../../../redux/Login/actions';
+import { loggedSucces } from '../../../redux/Login/actions';
 import { setToken, login } from '../../../services/AuthService';
 
 import Login from './layout';
@@ -31,14 +31,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loggedSucces: () => dispatch(loggedSucces()),
-  loggedFailed: () => dispatch(loggedFailed())
+  loggedSucces: () => dispatch(loggedSucces())
 });
 
 LoginContainer.propTypes = {
   log: PropTypes.bool.isRequired,
-  loggedSucces: PropTypes.func.isRequired,
-  loggedFailed: PropTypes.func.isRequired
+  loggedSucces: PropTypes.func.isRequired
 };
 
 export default connect(

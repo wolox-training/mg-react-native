@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from 'react-spinkit';
 
+import TopBar from '../../components/TopBar';
 import { getMatches } from '../../../redux/PrevGames/actions';
 
 import styles from './styles.scss';
@@ -36,17 +37,20 @@ class PrevGames extends React.Component {
 
   render() {
     return (
-      <div className={styles.list}>
-        <p>
-          Partidos Anteriores:{' '}
-          {this.props.loading ? (
-            <p className={styles.spinner}>
-              <Spinner name="circle" />{' '}
-            </p>
-          ) : (
-            this.renderGames()
-          )}{' '}
-        </p>
+      <div>
+        <TopBar />
+        <div className={styles.list}>
+          <p>
+            Partidos Anteriores:{' '}
+            {this.props.loading ? (
+              <p className={styles.spinner}>
+                <Spinner name="circle" />{' '}
+              </p>
+            ) : (
+              this.renderGames()
+            )}{' '}
+          </p>
+        </div>
       </div>
     );
   }

@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 
-import PrevGames from '../../screens/PrevGames';
+import TopBar from '../../components/TopBar';
 import { jumpTo, handleClick } from '../../../redux/actions';
 
 import Board from './components/Board';
@@ -49,7 +49,10 @@ class Game extends React.Component {
     }
 
     return (
-      <Fragment>
+      <div>
+        <div className={styles.topBar}>
+          <TopBar />
+        </div>
         <div className={styles.game}>
           <div className={styles.gameBoard}>
             <Board squares={current.squares} onClick={i => this.handleClick(i)} />
@@ -59,8 +62,7 @@ class Game extends React.Component {
             <ol>{moves}</ol>
           </div>
         </div>
-        <PrevGames />
-      </Fragment>
+      </div>
     );
   }
 }
