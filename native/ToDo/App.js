@@ -7,7 +7,7 @@
 import { Provider, createStore } from "react-redux";
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View } from "react-native";
-import List from "./screens/List";
+import List from "./screens/components/List";
 import store from "./redux";
 
 export default class App extends Component {

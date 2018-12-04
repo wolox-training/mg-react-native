@@ -1,20 +1,20 @@
 import React, { PureComponent } from "react";
-import {connect} from "react-redux";
-import { View, ScrollView } from "react-native";
+import { connect } from "react-redux";
+import { View, ScrollView, Text } from "react-native";
 
-import { addTodo } from "../redux/AddItem/actions";
+import actionCreator from "../../../redux/AddItem/actions";
 
-import Item from "./components/Item";
-import TopBar from "./components/TopBar";
-import BottomBar from "./components/BottomBar";
-import TextInput from "./components/TextInput";
+import Item from "../Item";
+import TopBar from "../TopBar";
+import BottomBar from "../BottomBar";
+import NewTextInput from "../NewTextInput";
 
 class List extends PureComponent {
   render() {
     return (
       <View>
         <TopBar />
-        <TextInput />
+        <NewTextInput />
         <ScrollView>
           {this.props.todos.map(todo => (
             <Item
@@ -36,10 +36,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: text => dispatch(addTodo(text))
+  addTodo: text => dispatch(actionCreator.addTodo(text))
 });
 ​
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List)
+)(List);

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Text, CheckBox, View, Image } from "react-native";
+import { connect } from "react-redux";
+import cancelIcon from "../../../assets/cancel.svg";
 
-import cancelIcon from "../../assets/cancel.svg";
-
-class Item extends React.Component {
+class Item extends PureComponent {
   render() {
     return (
       <View style={styles.itemBack}>
@@ -20,4 +20,11 @@ class Item extends React.Component {
   }
 }
 
-export default Item;
+const mapDispatchToProps = dispatch => ({
+  deleteTodo: id => dispatch(deleteTodo(id))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Item);
