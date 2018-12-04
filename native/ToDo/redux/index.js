@@ -5,4 +5,4 @@ const reducers = combineReducers({
   todos
 });
 
-export const store = createStore(reducers);
+export default createStore(reducers);

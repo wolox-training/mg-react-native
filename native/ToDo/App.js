@@ -4,9 +4,9 @@
  *
  * @format
  */
-import { Provider, createStore } from "react-redux";
+import { Provider } from "react-redux";
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import List from "./screens/components/List";
 import store from "./redux";
 
