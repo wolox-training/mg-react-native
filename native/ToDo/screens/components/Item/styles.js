@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+  text: {
+    flex: 1
+  },
   checked: {
     color: "black",
     fontWeight: "bold",
@@ -10,16 +13,21 @@ export default StyleSheet.create({
     color: "black",
     fontSize: 30
   },
-  bars: {
-    color: "white",
-    fontSize: 50
-  },
-  newItem: {
-    color: "grey",
-    fontSize: 30,
-    fontStyle: "italic"
-  },
   itemBack: {
-    backgroundColor: "lightgray"
+    backgroundColor: "lightgray",
+    flexDirection: "row",
+    height: 50,
+    borderRadius: 4,
+    borderWidth: 0.5,
+    borderColor: "white",
+    alignItems: "center"
+  },
+  img: {
+    height: 40,
+    width: 40,
+    justifyContent: "flex-end"
+  },
+  checkBox: {
+    height: 20
   }
 });

@@ -1,7 +1,7 @@
 let initialState = [
-  { text: "item 1", id: 0, checked: false },
-  { text: "item 2", id: 1, checked: false },
-  { text: "item 3", id: 2, checked: false }
+  { text: "Leche 1", id: 0, checked: false },
+  { text: "Papa 2", id: 1, checked: false },
+  { text: "Galletitas 3", id: 2, checked: false }
 ];
 
 let id = 3;
@@ -18,10 +18,16 @@ const todos = (state = initialState, action) => {
         }
       ];
     case "DELETE_TODO":
-      return {
-        id: action.payload
-        // esto esta mal
-      };
+      return state.filter(todo => todo.id !== action.payload);
+    case "TOGGLE_TODO":
+      return state.map(todo => {
+        if (todo.id === action.payload) {
+          return { ...todo, checked: !todo.checked };
+        }
+        return todo;
+      });
+    case "DELETE_CHECKED_TODO":
+      return state.filter(todo => todo.checked === false);
     default:
       return state;
   }

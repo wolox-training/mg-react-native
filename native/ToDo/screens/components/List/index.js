@@ -1,9 +1,10 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { View, ScrollView, Text } from "react-native";
+import { Button, View, ScrollView, Text } from "react-native";
 
 import actionCreator from "../../../redux/AddItem/actions";
 
+import styles from "./styles";
 import Item from "../Item";
 import TopBar from "../TopBar";
 import BottomBar from "../BottomBar";
@@ -11,9 +12,8 @@ import NewTextInput from "../NewTextInput";
 
 class List extends PureComponent {
   render() {
-    console.warn(this.props.todos);
     return (
-      <View>
+      <View style={styles.background}>
         <TopBar />
         <NewTextInput />
         <ScrollView>
@@ -22,10 +22,16 @@ class List extends PureComponent {
               key={todo.id}
               id={todo.id}
               text={todo.text}
-              cheched={todo.checked}
+              checked={todo.checked}
             />
           ))}
         </ScrollView>
+        <Button
+          onPress={this.props.deleteCheckedTodo}
+          title="Eliminar seleccionados"
+          color="black"
+          disabled={!this.props.anyChecked}
+        />
         <BottomBar />
       </View>
     );
@@ -33,10 +39,12 @@ class List extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  anyChecked: state.todos.some(todo => todo.checked)
 });
 const mapDispatchToProps = dispatch => ({
-  addTodo: text => dispatch(actionCreator.addTodo(text))
+  addTodo: text => dispatch(actionCreator.addTodo(text)),
+  deleteCheckedTodo: () => dispatch(actionCreator.deleteCheckedTodo())
 });
 export default connect(
   mapStateToProps,

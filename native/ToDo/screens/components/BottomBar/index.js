@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { styles } from "../../../styles/styles";
+import styles from "./styles";
 
 class BottomBar extends React.Component {
   render() {

@@ -1,10 +1,10 @@
 import React, { PureComponent } from "react";
-import { Text } from "react-native";
-import { styles } from "../../../styles/styles";
+import { Text, View } from "react-native";
+import styles from "./styles";
 
 class TopBar extends PureComponent {
   render() {
-    return <Text style={{ height: 100 }}>Top Bar</Text>;
+    return <Text style={styles.topBar}>LISTA DE QUEHACERES</Text>;
   }
 }
 
