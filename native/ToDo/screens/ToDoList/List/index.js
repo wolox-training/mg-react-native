@@ -1,6 +1,6 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Button, View, ScrollView, Text } from "react-native";
+import { Button, View, ScrollView } from "react-native";
 
 import actionCreator from "../../../redux/AddItem/actions";
 
@@ -10,7 +10,18 @@ import TopBar from "../TopBar";
 import BottomBar from "../BottomBar";
 import NewTextInput from "../NewTextInput";
 
-class List extends PureComponent {
+class List extends React.Component {
+  static navigationOptions = {
+    headerTitle: List,
+    headerRight: (
+      <Button
+        onPress={() => this.props.navigation.navigate("Books")}
+        title="Books"
+        color="#fff"
+      />
+    )
+  };
+
   render() {
     return (
       <View style={styles.background}>
