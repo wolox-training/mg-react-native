@@ -47,7 +47,7 @@ exports.BooksList = [
   {
     id: 6,
     author: "Paula Hawkins",
-    title: "The Girl on the Train\n",
+    title: "The Girl on the Train",
     genre: "suspense",
     publisher: "Riverhead Books",
     year: "2015",
@@ -74,6 +74,44 @@ exports.BooksList = [
   },
   {
     id: 9,
+    author: "Andy Weir",
+    title: "The Martian",
+    genre: "fiction",
+    publisher: "Crown Publishing Group",
+    year: "2011",
+    image_url:
+      "http://wolox-training.s3.amazonaws.com/uploads/41DNuJfahyL._SX322_BO1_204_203_200_.jpg"
+  },
+  {
+    id: 10,
+    author: "Paula Hawkins",
+    title: "The Girl on the Train",
+    genre: "suspense",
+    publisher: "Riverhead Books",
+    year: "2015",
+    image_url: "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
+  },
+  {
+    id: 10,
+    author: "Anthony Doerr",
+    title: "All the Light We Cannot See",
+    genre: "suspense",
+    publisher: "Scribner",
+    year: "2014",
+    image_url: "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
+  },
+  {
+    id: 12,
+    author: "John Katzenbach",
+    title: "The analyst",
+    genre: "thriller",
+    publisher: "Ballantine Books",
+    year: "2003",
+    image_url:
+      "http://wolox-training.s3.amazonaws.com/uploads/el-psicoanalista-analyst-john-katzenbach-paperback-cover-art.jpg"
+  },
+  {
+    id: 13,
     author: "Andy Weir",
     title: "The Martian",
     genre: "fiction",

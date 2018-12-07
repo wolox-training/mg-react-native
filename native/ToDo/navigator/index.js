@@ -8,8 +8,18 @@ import Books from "../screens/Books";
 import BooksDetails from "../screens/BooksDetails/index";
 
 const BooksStack = createStackNavigator({
-  Books: Books,
-  Details: BooksDetails
+  Books: {
+    screen: Books,
+    navigationOptions: () => ({
+      title: "Libros"
+    })
+  },
+  Details: {
+    screen: BooksDetails,
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.state.params.title
+    })
+  }
 });
 
 const TabNavigator = createBottomTabNavigator({

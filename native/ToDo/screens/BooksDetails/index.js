@@ -16,9 +16,6 @@ class BooksDetails extends React.Component {
           }
         />
         <Text style={styles.text}>
-          Titulo: {this.props.navigation.state.params.title}
-        </Text>
-        <Text style={styles.text}>
           Autor: {this.props.navigation.state.params.author}
         </Text>
         <Text style={styles.text}>

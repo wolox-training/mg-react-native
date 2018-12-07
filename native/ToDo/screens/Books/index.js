@@ -1,13 +1,20 @@
 import React from "react";
-import { Text, View, Button, TouchableOpacity, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  Button,
+  TouchableOpacity,
+  FlatList
+} from "react-native";
 import { BooksList } from "../../assets/Books";
 import ItemBook from "./ItemBook/index";
 
 class Books extends React.Component {
   render() {
     return (
-      <View>
-        <Text>Books</Text>
+      // hacer una view y el button
+      <ScrollView>
         <Button
           title="Volver a la lista"
           onPress={() => this.props.navigation.navigate("Home")}
@@ -43,7 +50,7 @@ class Books extends React.Component {
             </TouchableOpacity>
           )}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
