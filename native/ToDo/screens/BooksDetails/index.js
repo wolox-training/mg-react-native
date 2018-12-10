@@ -10,22 +10,22 @@ class BooksDetails extends React.Component {
         <Image
           style={styles.image}
           source={
-            this.props.navigation.state.params.image
-              ? { uri: this.props.navigation.state.params.image }
+            this.props.navigation.state.params.book.image
+              ? { uri: this.props.navigation.state.params.book.image }
               : nullImage
           }
         />
         <Text style={styles.text}>
-          Autor: {this.props.navigation.state.params.author}
+          Autor: {this.props.navigation.state.params.book.author}
         </Text>
         <Text style={styles.text}>
-          Genero: {this.props.navigation.state.params.genre}
+          Genero: {this.props.navigation.state.params.book.genre}
         </Text>
         <Text style={styles.text}>
-          Publicador: {this.props.navigation.state.params.publisher}
+          Publicador: {this.props.navigation.state.params.book.publisher}
         </Text>
         <Text style={styles.text}>
-          Año: {this.props.navigation.state.params.year}
+          Año: {this.props.navigation.state.params.book.year}
         </Text>
       </View>
     );

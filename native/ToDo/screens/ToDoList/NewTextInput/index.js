@@ -10,18 +10,20 @@ class NewTextInput extends React.Component {
     this.state = { text: "" };
   }
 
-  onSubmit = () => {
+  handleSubmit = () => {
     this.props.addTodo(this.state.text);
     this.setState({ text: "" });
   };
+
+  onTextChange = text => this.setState({ text });
 
   render() {
     return (
       <TextInput
         style={styles.newItem}
-        onChangeText={text => this.setState({ text })}
+        onChangeText={this.onTextChange}
         value={this.state.text}
-        onSubmitEditing={this.onSubmit}
+        onSubmitEditing={this.handleSubmit}
         placeholder="Nuevo item"
       />
     );

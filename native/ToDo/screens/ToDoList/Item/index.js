@@ -1,11 +1,18 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { TouchableOpacity, Text, Switch, View, Image } from "react-native";
 import { connect } from "react-redux";
 import cancelIcon from "../../../assets/cancel.png";
 import styles from "./styles";
 import actionCreator from "../../../redux/AddItem/actions";
 
-class Item extends PureComponent {
+class Item extends React.Component {
+  valueChange = () => {
+    this.props.isChecked(this.props.id);
+  };
+  deleteFromTodo = () => {
+    this.props.deleteTodo(this.props.id);
+  };
+
   render() {
     return (
       <View style={styles.itemBack}>
@@ -20,9 +27,9 @@ class Item extends PureComponent {
         <Switch
           styles={styles.checkBox}
           value={this.props.checked}
-          onValueChange={() => this.props.isChecked(this.props.id)}
+          onValueChange={this.valueChange}
         />
-        <TouchableOpacity onPress={() => this.props.deleteTodo(this.props.id)}>
+        <TouchableOpacity onPress={this.deleteFromTodo}>
           <Image style={styles.img} source={cancelIcon} />
         </TouchableOpacity>
       </View>
