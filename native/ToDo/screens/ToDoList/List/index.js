@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button, View, ScrollView } from "react-native";
+import { createSelector } from "reselect";
 
 import actionCreator from "../../../redux/AddItem/actions";
 
@@ -49,9 +50,16 @@ class List extends React.Component {
   }
 }
 
+const checkedSelector = state => state.todos;
+
+const anyCheckedSelector = createSelector(
+  checkedSelector,
+  todos => todos.some(todo => todo.checked)
+);
+
 const mapStateToProps = state => ({
   todos: state.todos,
-  anyChecked: state.todos.some(todo => todo.checked)
+  anyChecked: anyCheckedSelector(state)
 });
 const mapDispatchToProps = dispatch => ({
   addTodo: text => dispatch(actionCreator.addTodo(text)),

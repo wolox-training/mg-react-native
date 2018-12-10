@@ -1,4 +1,4 @@
-exports.BooksList = [
+export default [
   {
     id: 1,
     author: "Emmie Thiel",
@@ -92,7 +92,7 @@ exports.BooksList = [
     image_url: "http://wolox-training.s3.amazonaws.com/uploads/content.jpeg"
   },
   {
-    id: 10,
+    id: 11,
     author: "Anthony Doerr",
     title: "All the Light We Cannot See",
     genre: "suspense",
