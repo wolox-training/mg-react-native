@@ -1,5 +1,6 @@
 import todos from "./AddItem/reducer";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import Reactotron from "../ReactotronConfig";
+import { combineReducers, applyMiddleware } from "redux";
 import books from "../redux/Books/reducer";
 import { fetchMiddleware } from "redux-recompose";
 import thunk from "redux-thunk";
@@ -11,4 +12,7 @@ const reducers = combineReducers({
   books
 });
 
-export default createStore(reducers, applyMiddleware(...middlewares));
+export default Reactotron.createStore(
+  reducers,
+  applyMiddleware(...middlewares)
+);

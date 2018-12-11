@@ -4,6 +4,7 @@
  *
  * @format
  */
+
 import { Provider } from "react-redux";
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
