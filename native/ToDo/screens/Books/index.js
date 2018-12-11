@@ -1,50 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
-import { TouchableOpacity, FlatList } from "react-native";
-import ItemBook from "./ItemBook/index";
 import actionCreators from "../../redux/Books/actions";
+import Book from "./layout";
 
-class Books extends React.Component {
+class BooksContainer extends React.Component {
   componentDidMount() {
     this.props.getBooks();
   }
 
+  handleDetail = book => {
+    this.props.navigation.navigate({
+      routeName: "Details",
+      params: {
+        book: {
+          author: book.author,
+          genre: book.genre,
+          year: book.year,
+          publisher: book.publisher,
+          title: book.title,
+          image: book.image_url
+        }
+      }
+    });
+  };
+
   render() {
     return (
-      <FlatList
-        data={this.props.books}
-        onRefresh={this.props.getBooks}
+      <Book
+        books={this.props.books}
         refreshing={this.props.refreshing}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({ item: book, index }) => (
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigation.navigate({
-                routeName: "Details",
-                params: {
-                  book: {
-                    author: book.author,
-                    genre: book.genre,
-                    year: book.year,
-                    publisher: book.publisher,
-                    title: book.title,
-                    image: book.image_url
-                  }
-                }
-              });
-            }}
-          >
-            <ItemBook
-              first={index === 0}
-              genre={book.genre}
-              publisher={book.publisher}
-              year={book.year}
-              author={book.author}
-              title={book.title}
-              imageSource={book.image_url}
-            />
-          </TouchableOpacity>
-        )}
+        getBooks={this.props.getBooks}
+        onDetail={this.handleDetail}
       />
     );
   }
@@ -62,4 +48,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Books);
+)(BooksContainer);
